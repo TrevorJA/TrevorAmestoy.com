@@ -1,10 +1,10 @@
 ---
-title: 'Fisheries Training Part 1 - Harvest Optimization and MOEA Diagnostics'
+title: 'Fisheries Training Part 1 Harvest Optimization and MOEA Diagnostics'
 date: 2022-08-20
 permalink: /posts/2022/08/Harvested_Predator_Prey_Part_1/
 tags:
   - Python
-	- MOEAs
+  - MOEAs
 ---
 
 

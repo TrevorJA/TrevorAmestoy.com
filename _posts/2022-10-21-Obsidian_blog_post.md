@@ -8,8 +8,6 @@ tags:
   - Markdown
 ---
 
-# Motivation
-
 Over the last year, being in the Reed Research Group, I have been exposed to new ideas more rapidly than I can manage. During this period, I was filling my laptop storage with countless .`docx`, `.pdf`, `.txt`, `.html` files semi-sporadically stored across different cloud and local storages.
 
 Finding a good method for organizing my notes and documentation has been very beneficial for my productivity, processing of new ideas, and ultimately staying sane. For me, this has been done through [Obsidian](https://obsidian.md/).
