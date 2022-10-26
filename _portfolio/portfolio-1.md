@@ -1,6 +1,6 @@
 ---
 title: "The Lorenz Attractor"
-excerpt: "Various renderings of the famous attractor. <br/><img src='/images/500x300.png'>"
+excerpt: "Various renderings of the famous attractor. <br/><img src='/images/Lorenz_beautifully_chaotic.jpg'>"
 collection: portfolio
 ---
 
