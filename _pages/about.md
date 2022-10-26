@@ -25,3 +25,5 @@ I've done lots of cool things.
 ******
 
 This website was built off of the [academicpages.github.io](https://github.com/academicpages/academicpages.github.io) which was designed by Stuart Geiger and derived from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/).
+
+It is hosted on [GitHub](https://github.com/).

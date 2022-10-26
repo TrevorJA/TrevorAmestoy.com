@@ -1,6 +1,6 @@
 ---
 title: "The Clifford Attractor"
-excerpt: "A transformation based attractor. <br/><img src='/images/Clifford_attractor.jpg'>"
+excerpt: "A transformation based attractor. <br/><img src='/images/Clifford_attractor.jpg' width = 100>"
 collection: portfolio
 ---
 
