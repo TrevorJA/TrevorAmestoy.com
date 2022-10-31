@@ -86,7 +86,7 @@ author:
   location         : "Ithaca, NY"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
+  googlescholar    : "https://scholar.google.com/citations?user=a9jO2UUAAAAJ&hl=en"
   email            : "tja73@cornell.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
