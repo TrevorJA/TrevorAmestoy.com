@@ -1,15 +1,15 @@
 ---
-title: "Paper Title Number 1"
+title: "Peatland drainage alters soil structure and water retention properties: Implications for ecosystem function and management"
 collection: publications
-permalink: /publication/2009-10-01-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
-date: 2009-10-01
-venue: 'Journal 1'
+permalink: /publication/2009-10-01-Word_et_al_2022
+excerpt: 'Here, we study how historic wetland drainage permanently changed soil properties in the Great Dismal Swamp.'
+date: 2022-02-27
+venue: 'Hydrological Processes'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
+citation: 'Word, Clayton S., et al. (2022). &quot;Peatland drainage alters soil structure and water retention properties: Implications for ecosystem function and management.&quot; <i>Hydrological Processes</i>. 36.3'
 ---
-This paper is about the number 1. The number 2 is left for future work.
+Here, we study how historic wetland drainage permanently changed soil properties in the Great Dismal Swamp.
 
-[Download paper here](http://academicpages.github.io/files/paper1.pdf)
+[The paper can be found here.](https://onlinelibrary.wiley.com/doi/full/10.1002/hyp.14533)
 
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
+Recommended citation: Word, Clayton S., et al. "Peatland drainage alters soil structure and water retention properties: Implications for ecosystem function and management." *Hydrological Processes* 36.3 (2022): e14533.
