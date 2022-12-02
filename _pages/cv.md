@@ -10,7 +10,7 @@ redirect_from:
 {% include base_path %}
 
 Education
-======
+*******
 * Ph.D. Student in Environmental Water Resource Systems Engineering, Cornell University (Present)
 * B.S. in Civil Engineering, University of New Mexico, 2021
   * Minor in Interdisciplinary Liberal Arts
@@ -18,7 +18,7 @@ Education
 
 
 Work experience
-======
+************
 * Ph.D. Studeent, *Cornell University* (2021 - Present)
   * Studying  water resource decision making under deep uncertainty
   * Contributor to [Waterprogramming.wordpress.com](https://waterprogramming.wordpress.com/)
@@ -32,7 +32,7 @@ Work experience
 
 * Research Associate, *US Bureau of Reclamation, Brackish Groundwater National Desalination Research Facility* (2020)
 
-* Undegraduate Research Assistant, *UNM Center for Water & Environment* (2019-2020)
+* Undergraduate Research Assistant, *UNM Center for Water & Environment* (2019-2020)
   * Studying nutrient dynamics in headwater streams of the Rio Grande river.
   * Duties included: Merging pull requests
   * Supervisor: Professor Ricardo Gonzalez-Pinzon
@@ -47,7 +47,7 @@ Work experience
 
 
 Skills
-=======
+*************
 * Decision making support:
   * Optimization
   * Robustness analysis
@@ -59,31 +59,24 @@ Skills
 
 
 Publications
-======
+***********
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 Talks
-======
+****************
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
 
 Teaching
-======
+****************
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
 
 Awards:
-======
+***************
 * National Science Foundation (NSF) Graduate Research Fellowship
 * UNM Dept. of Civil & Environmental Engineering Outstanding Student of the Year (2018 & 2020)
-
-
-
-
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
