@@ -26,7 +26,7 @@ Also, I like having localized storage of the notes and documentation that I am a
 
 I've been using Obsidian as my primary notetaking app for a few months now, and it become central to my workflow. In this post, I show how Obsidian extends Markdown feature utility, helps to organize topical `.md` libraries, and generally makes the documentation process more enjoyable.  I also try to explain why I believe Obsidian is so effective for researchers or code developers.
 
-![[op_pagedemo.png]]
+<img src="/images/obsidian_pagedemo.png" width = 400 class="center">
 
 # Note Taking in Markdown
 
@@ -53,7 +53,9 @@ Obsidian is designed to help facilitate this style of note taking, with the goal
 
 To this end, Obsidian helps to easily navigate these connections and visualize relationships stored within a *Vault* (which is just a fancy word for one large folder directory).  Below is a screen cap of my note network developed over the last ~4 months.  On the left is a visualization of my entire note directory, with a zoomed-in view on the right.
 
-![[combined_net.png]]
+
+<img src="/images/obsidian_graph.png" width = 400 class="center">
+
 
 Notice the `scenario discovery` node, which has direct connections to methodological notes on `Logistic Regression`,  `Boosted Trees`, `PRIM`, and literature review notes on `Bryant & Lempert 2010`, a paper which was influential in advocating for [*participatory, computer-assisted scenario discovery*](https://www.rand.org/pubs/external_publications/EP201000192.html).
 
@@ -145,13 +147,14 @@ $$
 
 Obsidian boasts an impressive [667 community-developed plugins](https://obsidian.md/plugins) with a wide variety of functionality. A glimpse at the webpage shows plugins that give more control over the visual interface, allow for alternative LaTeX environments, or allow for pages to be exported to various file formats.
 
-![[Pasted image 20221021085718.png]]
+
+<img src="/images/obsidian_plugins.png" width = 400 class="center">
 
 Realistically, I have not spent a lot of time working with the plugins. But, if you are someone who likes the idea of a continuously evolving and modifiable documentation environment then you may want to check them out in greater depth.
 
 # Conclusion: Why did I write this?
 
-This is not a sponsered post in any way, I just like the app.  
+This is not a sponsored post in any way, I just like the app.  
 
 When diving into a new project or starting a research program, it is critical to find a way of taking notes, documenting resources, and storing ideas that works for you. Obsidian is one tool which has proven to be effective for me.  It may help you.  
 
