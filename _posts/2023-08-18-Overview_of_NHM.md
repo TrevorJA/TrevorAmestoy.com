@@ -7,8 +7,6 @@ tags:
   - Hydrology
 ---
 
-## Motivation:
-
 Over the past several months, I have been working with data from the US Geological Survey's (USGS) National Hydrologic Model (NHM), a valuable resource that required some time to become familiar with. The goal of this post is to provide an overview of the NHM, incorporating as many links as possible, with the hope of encouraging others to utilize these resources and serving as a springboard for further investigation.
 
 ### Why should you care about the NHM? 

@@ -7,8 +7,6 @@ tags:
   - example
 ---
 
-## Motivation:
-
 The start of a new year is a good (albeit, relatively arbitrary) time to reassess aspects of your workflow.
 
 I, like many people, taught myself Python by jumping into different projects. The consequence of this ad-hoc learning was that I did not learn some of the fundamentals until much later in my project development.

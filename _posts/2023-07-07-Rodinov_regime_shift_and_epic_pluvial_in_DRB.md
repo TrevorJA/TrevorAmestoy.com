@@ -8,9 +8,6 @@ tags:
   - PUB
 ---
 
-# Rodionov Regime Shift Detection Algorithm and the "Epic Pluvial" in the Delaware River Basin
-
-
 In their 2013 publication, Pederson et al. try to answer the question posed by the title: [*Is an Epic Pluvial Masking the Water Insecurity of the Greater New York City Region?*](https://journals.ametsoc.org/view/journals/clim/26/4/jcli-d-11-00723.1.xml?tab_body=fulltext-display)
 
 To help answer this question, they first reconstruct 472 years of [*Palmer Drought Severity Index*](https://climatedataguide.ucar.edu/climate-data/palmer-drought-severity-index-pdsi)(PDSI) for the region, created using tree-ring chronologies, and show that study the hydroclimate patterns over the historic record. The reconstructed PDSI, along with measured meteorological data dating back to 1895 are used to assess trends the region's hydroclimate.
