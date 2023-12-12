@@ -1,7 +1,7 @@
 ---
 title: 'QPPQ Method for Streamflow Predictions in Ungauged Basins'
-date: 2023
-permalink: /posts/2023/03/QPPQ/
+date: 2022-11-22
+permalink: /posts/2022/11/QPPQ/
 tags:
   - QPPQ
   - Python
