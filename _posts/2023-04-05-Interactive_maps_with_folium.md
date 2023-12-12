@@ -1,14 +1,12 @@
 ---
 title: 'Interactive Geo-Spatial Maps with Folium for Python'
-date: 2023
+date: 2023-04-05
 permalink: /posts/2023/04/Folium/
 tags:
   - Folium
   - Python
   - Maps
 ---
-
-# Interactive Geo-Spatial Maps with Folium for Python
 
 Interactive mapping and data visualization provide data scientists and researchers with a unique opportunity to explore and analyze spatial data, and to share their work with stakeholders in a more engaging and accessible way. 
 

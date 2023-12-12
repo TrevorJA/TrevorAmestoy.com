@@ -1,13 +1,11 @@
 ---
 title: 'Structuring a Python Project - Recommendations and a Template Example'
-date: 2022-01-11
+date: 2022-01-18
 permalink: /posts/2022/01/PythonProjects/
 tags:
   - Python
   - example
 ---
-
-# Structuring a Python Project - Recommendations and a Template Example
 
 ## Motivation:
 

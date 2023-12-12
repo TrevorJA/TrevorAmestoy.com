@@ -1,6 +1,6 @@
 ---
 title: 'Rodionov Regime Shift Detection Algorithm and the "Epic Pluvial" in the Delaware River Basin'
-date: 2023
+date: 2023-07-07
 permalink: /posts/2023/03/RodinovRegimeShifts/
 tags:
   - QPPQ
