@@ -1,7 +1,7 @@
 ---
 title: 'Hydrologic Data Retrieval with HyRiver for Python'
 date: 2022-09-17
-permalink: /posts/2022/09/HyRiver_tutorial/
+permalink: /posts/2022/09/HyRiver/
 tags:
   - HyRiver
   - Python

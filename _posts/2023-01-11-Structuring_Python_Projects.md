@@ -1,3 +1,14 @@
+---
+title: 'Structuring a Python Project - Recommendations and a Template Example'
+date: 2022-01-11
+permalink: /posts/2022/01/PythonProjects/
+tags:
+  - Python
+  - example
+---
+
+# Structuring a Python Project - Recommendations and a Template Example
+
 ## Motivation:
 
 The start of a new year is a good (albeit, relatively arbitrary) time to reassess aspects of your workflow.

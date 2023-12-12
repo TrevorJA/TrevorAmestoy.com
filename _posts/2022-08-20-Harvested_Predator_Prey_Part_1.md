@@ -8,6 +8,7 @@ tags:
 ---
 
 
+
 This is the second post in a training series, studying decision making under deep uncertainty within the context of a complex harvested predator-prey fishery.
 
 The first post in this training series, [Fisheries Training 0: Exploring Predator-Prey Dynamics, can be found here](https://waterprogramming.wordpress.com/2022/07/11/__trashed-3/).

@@ -1,7 +1,7 @@
 ---
 title: 'Markdown-Based Scientific and Computational Note Taking with Obsidian'
 date: 2022-10-21
-permalink: /posts/2022/10/Obsidian_blog_post/
+permalink: /posts/2022/10/Obsidian/
 tags:
   - Obsidian
   - LaTeX
