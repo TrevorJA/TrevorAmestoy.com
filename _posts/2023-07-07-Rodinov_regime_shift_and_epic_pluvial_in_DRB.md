@@ -23,7 +23,7 @@ When I saw this figure, several of my own questions came to mind:
 - This regime shift was detected in precipitation, will it also be detected in streamflow data?
 
 
-<img src="/images/blog_posts/penderson_et_al_fig1b.jpg" width = 400 class="center">
+<img src="./images/blog_posts/penderson_et_al_fig1b.jpg" width = 400 class="center">
 
 
 ## Post Overview
@@ -192,7 +192,7 @@ In this study, I start by searching for regimes with an assumed minimum length o
 
 Running Rodionov's algorithm on the standardized streamflow data reveals a significant regime shift toward wetter conditions in 2003:
 
-<img src="/images/blog_posts/regime_shifts_l10_p0.005.png" width = 400 class="center">
+<img src="./images/blog_posts/regime_shifts_l10_p0.005.png" width = 400 class="center">
 
 Notably, the 1970s regime shift reported by Pederson et al. (2013) is *not* detected in the streamflow timeseries, under the initial parameterization.  However, the authors also identified the 2003 regime shift toward wetter conditions, and the 2003 shift was the only shift they detected when analyzing *summer* precipitation (see lower timeseries in the Pederson figure earlier in this post).
 
@@ -204,7 +204,7 @@ Rather than specifying a single assumed minimum regime length, I re-ran the Rodi
 
 The figure below shows all of the different regimes determined to be significant across the range of different regime lengths.  I also added a measure of Found Frequency (lower row) which indicates how often a specific year contained a significant regime shift across the 30 instances of the search.
 
-<img src="/images/blog_posts/regime_shifts_alt_params.png" width = 400 class="center">
+<img src="./images/blog_posts/regime_shifts_alt_params.png" width = 400 class="center">
 
 From the above analysis, we can see:
 1. Identified regimes are variable in duration, and magnitude depending on the specification 

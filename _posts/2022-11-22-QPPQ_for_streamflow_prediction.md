@@ -44,7 +44,7 @@ Looking at this formulation, and the sequence of transformations that take place
 
 This method is summarized well by the taken from the [USGS Report on the topic](https://pubs.usgs.gov/sir/2015/5157/sir20155157.pdf):
 
-![A graphical representation of the QPPQ method.](./images/QPPQ_Method_Graphic.png)
+<img src="/images/QPPQ_Method_Graphic.png" width = 400 class="center">
 
 In the following section, I step through an implementation of this method in Python.
 
@@ -78,8 +78,7 @@ region = (-108.0, 38.0, -105.0, 40.0)
 ```
 Above, I specify a region West of the Rocky Mountains in Colorado. Running the `generate_streamflow_data.py`, I found 73 USGS gage locations (blue circles). 
 
-![Spatial distribution of gauge sites used in this demo](./images/QPPQ_demo_sites.png)
-
+<img src="/images/QPPQ_demo_sites.png" width = 400 class="center">
 
 #### QPPQ Model
 
@@ -264,8 +263,7 @@ plot_predicted_and_observed(predicted_flow, test_flow)
 ```
 Which shows some very-nice quality predictions!
 
-![Example QPPQ flow prediction compared to actual observed flow.](./images/QPPQ_demo_1.png)
-
+<img src="/images/QPPQ_demo_1.png" width = 400 class="center">
 
 One benefit of working with the `StreamflowGenerator` as a Python `class` object is that we can retrieve the internal variables for further inspection.  
 
