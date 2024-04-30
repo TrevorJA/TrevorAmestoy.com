@@ -20,7 +20,7 @@ Fans of this blog will know that uncertainty is often a focus for our group. Whe
 PyMC, described in their own words:
 "... is a probabilistic programming library for Python that allows users to build Bayesian models with a simple Python API and fit them using Markov chain Monte Carlo (MCMC) methods."
 
-In my opinion, the best part of PyMC is the flexibility and breadth of model design features. The space of different model configurations is massive. It allows you to make models ranging from simple linear regressions (shown here), to more complex hierarchical models, [copulas](https://en.wikipedia.org/wiki/Copula_(probability_theory), [gaussian processes](https://en.wikipedia.org/wiki/Gaussian_process), and more. 
+In my opinion, the best part of PyMC is the flexibility and breadth of model design features. The space of different model configurations is massive. It allows you to make models ranging from simple linear regressions (shown here), to more complex hierarchical models, [copulas](https://en.wikipedia.org/wiki/Copula_(probability_theory)), [gaussian processes](https://en.wikipedia.org/wiki/Gaussian_process), and more. 
 
 Regardless of your model formulation, PyMC let's you generate posterior estimates of model parameter distributions. These parameter distributions reflect the uncertainty in the model, and can propagate uncertainty into your final predictions. 
 
@@ -112,9 +112,8 @@ ys = np.log(ys)
 
 At a glance, we see there is a reasonable linear relationship when working in the log space:
 
-<div style="text-align: center;">
-    <img src="./images/PyMC-prior.png" width=50%>
-</div>
+<img src="./images/PyMC-prior.png" width=50% class="center">
+
 
 Two of the key features when building a model are:
 - The random variable distribution constructions
@@ -193,9 +192,8 @@ plt.suptitle('90% Posterior Prediction Interval', fontsize=14)
 plt.show()
 ```
 
-<div style="text-align: center;">
-    <img src="./images/PyMC-posterior_predictions.png" width=75%>
-</div>
+<img src="./images/PyMC-posterior_predictions.png" width=75% class="center">
+
 
 
 And there we have it!   The figure on the left shows the data and posterior prediction range in log-space, while the figure on the right is in non-log space.  
