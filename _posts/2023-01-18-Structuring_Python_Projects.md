@@ -1,7 +1,7 @@
 ---
 title: 'Structuring a Python Project - Recommendations and a Template Example'
 date: 2022-01-18
-permalink: /posts/2022/01/PythonProjects/
+permalink: /posts/2022/PythonProjects/
 tags:
   - Python
   - example
@@ -85,7 +85,10 @@ The project is a silly riddle program with no real usefulness other than forming
 
 Below is a visual representation of how the different functions are interacting. The green-box functions are contained within the main `sample_package`, while the blue-box function is stored in the `subpackage`.  
 
-<img src="/images/Python Project Organization Best Practices-3.png" width = 400 class="center">
+<div style="text-align: center;">
+  <img src="./images/python_demo_flow.png" width =75%>
+</div>
+
 
 The program can then be executed from a command line using the [`main.py`](https://github.com/TrevorJA/example_python_project/blob/main/main.py) executable:
 

@@ -1,7 +1,7 @@
 ---
 title: 'Overview of the National Hydrologic Model'
 date: 2023-08-18
-permalink: /posts/2023/08/NHM/
+permalink: /posts/2023/NHM/
 tags:
   - NHM
   - Hydrology
@@ -33,7 +33,11 @@ In this post, I will delve into each of these components, providing more informa
 ### The Geospatial Fabric
 The [geospatial fabric](https://wwwbrr.cr.usgs.gov/projects/SW_MoWS/GeospatialFabric.html) contains spatial data that serves as the skeletal structure of the NHM, facilitating the routing of modeled streamflow across across catchments.  The image below shows the CONUS-scale geospatial fabric. 
 
-![Map of streams across the USA](./images/usa_streams_dark.png)
+<div style="text-align: center;">
+    <img src="./images/usa_streams_dark.png">
+</div>
+
+
 
 The geospatial fabric contains individual stream reaches (called "segments"), delineated sub-catchments (called "Hydrologic Response Units", or HRUs), and many specific points of interest which correspond to USGS observational gauge locations. 
 
@@ -55,7 +59,10 @@ The [Precipitation-Runoff Modeling System (PRMS)](https://www.usgs.gov/software/
 
 The PRMS simulates many different hydrologic processes such as snowmelt, infiltration, groundwater recharge, surface runoff, and finally streamflow. A conceptual representation of the PRMS, taken from Markstrom et al. (2015) shows the modeled relationships between these processes: 
 
-![Conceptual graphic of the PRMS](./images/PRMS%20Conceptual.png)
+<div style="text-align: center;">
+    <img src="./images/PRMS%20Conceptual.png">
+</div>
+
 
 The input data for the PRMS is flexible, but requires some combination of precipitation, air temperature, and solar radiation timeseries.  Historic [Daymet](https://doi.org/10.3334/ORNLDAAC/1328) data provide the climate forcings for the historic period, but future climate projections can also be used.
 

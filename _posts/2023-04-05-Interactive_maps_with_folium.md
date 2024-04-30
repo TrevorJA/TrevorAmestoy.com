@@ -1,7 +1,7 @@
 ---
 title: 'Interactive Geo-Spatial Maps with Folium for Python'
 date: 2023-04-05
-permalink: /posts/2023/04/Folium/
+permalink: /posts/2023/Folium/
 tags:
   - Folium
   - Python
@@ -16,7 +16,9 @@ I've had a lot of success using the [`folium`](https://python-visualization.gith
 
 In this post, I provide a demonstration on how to use the `folium` package to create an HTML based interactive map of a hydrologic watershed.
 
-<img src="/images/map_comparison.png" width = 400 class="center">
+<div style="text-align: center;">
+    <img src="./images/map_comparison.png" width=75%>
+</div>
 
 ## Folium: a quick introduction
 
@@ -34,7 +36,9 @@ To interact with the demo map directly, download the file here: [`basin_map.html
 
 Here is a brief video showcasing the interaction with the final map:
 
-<img src="/images/interactive_map_usage.gif" width = 400 class="center">
+<div style="text-align: center;">
+	<img src="./images/interactive_map_usage.gif" width = 75%>
+</div>
 
 The [`folium_map_demo.ipynb`](https://github.com/TrevorJA/Folium_Interactive_Map_Demo/blob/main/folium_map_demo.ipynb) walks through the process shown below and will re-create the map shown above. You can create a similar plot for a different basin by changing the `station_id` number inside ['retrieve_basin_data.ipynb'](https://github.com/TrevorJA/Folium_Interactive_Map_Demo/blob/main/retrieve_basin_data.ipynb) to a specific USGS gauge of interest. 
 
@@ -138,7 +142,10 @@ folium.TileLayer('stamenterrain').add_to(geomap)
 
 Here is a side-by-side comparison of the four different tiles used in this demo:
 
-<img src="/images/compare_folium_tiles.png" width = 400 class="center">
+<div style="text-align: center;">
+	<img src="./images/compare_folium_tiles.png" width = 75%>
+</div>
+
 
 #### Initializing feature groups (layers)
 

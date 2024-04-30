@@ -1,11 +1,12 @@
 ---
 title: 'Rodionov Regime Shift Detection Algorithm and the "Epic Pluvial" in the Delaware River Basin'
 date: 2023-07-07
-permalink: /posts/2023/03/RodinovRegimeShifts/
+permalink: /posts/2023/RodinovRegimeShifts/
 tags:
-  - QPPQ
+  - DRB
   - Python
-  - PUB
+  - Climate
+  - Regime
 ---
 
 In their 2013 publication, Pederson et al. try to answer the question posed by the title: [*Is an Epic Pluvial Masking the Water Insecurity of the Greater New York City Region?*](https://journals.ametsoc.org/view/journals/clim/26/4/jcli-d-11-00723.1.xml?tab_body=fulltext-display)
@@ -22,8 +23,9 @@ When I saw this figure, several of my own questions came to mind:
 - Has the wet-regime continued after 2011 (end of study period)?
 - This regime shift was detected in precipitation, will it also be detected in streamflow data?
 
-
-<img src="./images/blog_posts/penderson_et_al_fig1b.jpg" width = 400 class="center">
+<div style="text-align: center;">
+	<img src="./images/penderson_et_al_fig1b.jpg" width = 75%>
+</div>
 
 
 ## Post Overview
@@ -192,7 +194,9 @@ In this study, I start by searching for regimes with an assumed minimum length o
 
 Running Rodionov's algorithm on the standardized streamflow data reveals a significant regime shift toward wetter conditions in 2003:
 
-<img src="./images/blog_posts/regime_shifts_l10_p0.005.png" width = 400 class="center">
+<div style="text-align: center;">
+	<img src="./images/regime_shifts_l10_p0.005.png" width = 75%>
+</div>
 
 Notably, the 1970s regime shift reported by Pederson et al. (2013) is *not* detected in the streamflow timeseries, under the initial parameterization.  However, the authors also identified the 2003 regime shift toward wetter conditions, and the 2003 shift was the only shift they detected when analyzing *summer* precipitation (see lower timeseries in the Pederson figure earlier in this post).
 
@@ -204,7 +208,9 @@ Rather than specifying a single assumed minimum regime length, I re-ran the Rodi
 
 The figure below shows all of the different regimes determined to be significant across the range of different regime lengths.  I also added a measure of Found Frequency (lower row) which indicates how often a specific year contained a significant regime shift across the 30 instances of the search.
 
-<img src="./images/blog_posts/regime_shifts_alt_params.png" width = 400 class="center">
+<div style="text-align: center;">
+	<img src="./images/regime_shifts_alt_params.png" width = 75%>
+</div>
 
 From the above analysis, we can see:
 1. Identified regimes are variable in duration, and magnitude depending on the specification 

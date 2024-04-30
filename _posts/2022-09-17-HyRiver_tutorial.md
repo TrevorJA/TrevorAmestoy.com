@@ -1,7 +1,7 @@
 ---
 title: 'Hydrologic Data Retrieval with HyRiver for Python'
 date: 2022-09-17
-permalink: /posts/2022/09/HyRiver/
+permalink: /posts/2022/HyRiver/
 tags:
   - HyRiver
   - Python
@@ -81,6 +81,7 @@ Personally, I have gone through the process of trying to download data manually 
 In this respect, the `PyGeoHydro` library alone is gamechanger.
 
 ## 1.1 Initialize PyGeoHydro NWIS tool
+
 ```python
 # Import common libraries
 import numpy as np
@@ -122,6 +123,7 @@ print(f'PyGeoHydro found {len(set(info_box.site_no))} unique gages in this regio
 Although, this `info_box` identify many gages in the region which have very old or very brief data records. Knowing this, I want to filter out data which does not have a suitable record length.
 
 For the sake of this tutorial, I am considering data between **January 1st, 2020** and **December 31st, 2020**.
+
 ```python
 # Specify date range of interest
 dates = ("2020-01-01", "2020-12-31")
@@ -200,9 +202,6 @@ main_flowlines.plot(color = 'b', legend = True, label = 'Main branch', ax = ax)
 all_stations.plot(color='g', legend=True, label = 'USGS gages', ax=ax)
 ax.legend()
 ```
-
-
-![[Pasted image 20220920075158.png]]
 
 
 
@@ -303,3 +302,15 @@ for i, st in enumerate(flow_data.columns):
 
 daymet_data.shape
 ```
+
+Without having used a web-browsers, I have been able to get access to a set of physical basin characteristics, various climate data, and observed streamflow relevant to my region of interest!
+
+Now this data can be exported to a CSV, and used on any other project.
+
+## Conclusion
+I hope this introduction to HyRiver has encouraged you to go bigger with your hydroclimate data ambitions.
+
+If you are curious to learn more, I’d recommend you see the HyRiver Examples which have various in-depth Jupyter Notebook tutorials.
+
+## Citations
+Chegini, Taher, et al. “HyRiver: Hydroclimate Data Retriever.” Journal of Open Source Software, vol. 6, no. 66, 27 Oct. 2021, p. 3175, 10.21105/joss.03175. Accessed 15 June 2022.

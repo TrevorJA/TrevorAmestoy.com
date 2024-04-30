@@ -1,14 +1,14 @@
 ---
 title: 'QPPQ Method for Streamflow Predictions in Ungauged Basins'
 date: 2022-11-22
-permalink: /posts/2022/11/QPPQ/
+permalink: /posts/2022/QPPQ/
 tags:
   - QPPQ
   - Python
   - PUB
 ---
 
-Predicting streamflow at ungauged locations is a classic problem in hydrology which has motivated significant research over the last several decades ([Hrachowitz et al., 2013](Hrachowitz, Markus, et al. "A decade of Predictions in Ungauged Basins (PUB)—a review." _Hydrological sciences journal_ 58.6 (2013): 1198-1255.)).  
+Predicting streamflow at ungauged locations is a classic problem in hydrology which has motivated significant research over the last several decades (Hrachowitz et al., 2013). 
 
 There are numerous different methods for performing predictions in ungauged basins, but here I focus on the common *QPPQ method*.
 
@@ -16,7 +16,7 @@ Below, I describe the method and further down I provide a walkthrough demonstrat
 
 The supporting code can be found on my GitHub here: [QPPQ_Streamflow_Prediction_Tutorial](https://github.com/TrevorJA/QPPQ_Streamflow_Prediction_Tutorial).
 
-### QPPQ-Method for Streamflow Prediction
+## QPPQ-Method for Streamflow Prediction
 
 [Fennessey (1994)](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=efFhgZ8AAAAJ&citation_for_view=efFhgZ8AAAAJ:zYLM7Y9cAGgC) introduced the *QPPQ method* for streamflow estimation at ungauged locations. 
 
@@ -31,20 +31,32 @@ The QPPQ method is commonly used and encouraged by the USGS, and is described at
 To limit the scope of this tutorial, let's assume that an estimate of the FDC at the target site, $\hat{FDC}_{pred}$, has already been determined through some other statistical or observational study. 
 
 Then the QPPQ method can be described more formally. Given an ungauged location with an estimated FDC, $\hat{FDC}_{pred}$, and set of observed streamflow timeseries $\mathbf{q_i}$ at $K$ neighboring sites, such that:
+
 $$Q_{obs} = \set{\mathbf{q_1}, \mathbf{q_2}, ..., \mathbf{q_k}}$$
+
 With corresponding $K$ FDCs at the observation locations:
+
 $$FDC_{obs} = \set{FDC_1, FDC_2, ... , FDC_k}$$
-The FDCs are used to convert the observed streamflow timeseries, $\mathbf{q_{obs, i}}$, to non-exceedance probability timeseries, $\mathbf{p_{obs, i}}$.
+
+The FDCs are used to convert the observed streamflow timeseries, $\mathbf{q_{obs, i}}$, to non-exceedance probability timeseries, $\mathbf{p_{obs, i}}$
+
 $$FDC_i : \mathbf{q_{i}} \to \mathbf{p_i}$$
+
 We can then perform a weighted-aggregation of the non-exceedance probability timeseries to estimate the non-exceedance timeseries at the ungauged location. It is most common to apply an inverse-squared-distance weight to each observed timeseries such that:$$\mathbf{p_{pred}} = \sum^k (\mathbf{p_i}w_i)$$ Where $w_i = 1 / d_i^2$ where $d_i$ is the distance from the observation $i$ to the ungauged location, and $\sum^k w_i = 1$. 
 
 Finally, the estimated FDC at the ungauged location, $\hat{FDC}_{pred}$, is used to convert the non-exceedance timeseries to streamflow timeseries:
+
 $$\hat{FDC}_{pred} : \mathbf{p_{pred}} \to \mathbf{q_{pred}}, \, \mathbf{P} = \set{\mathbf{p}_1, ..., \mathbf{p}_k}$$
+
 Looking at this formulation, and the sequence of transformations that take place, I hope it is clear why the method is rightfully called the *QPPQ method*.
 
 This method is summarized well by the taken from the [USGS Report on the topic](https://pubs.usgs.gov/sir/2015/5157/sir20155157.pdf):
 
-<img src="/images/QPPQ_Method_Graphic.png" width = 400 class="center">
+
+<div style="text-align: center;">
+    <img src="./images/QPPQ_Method_Graphic.png" width = 400>
+</div>
+
 
 In the following section, I step through an implementation of this method in Python.
 
@@ -71,14 +83,19 @@ I collected USGS streamflow data from $N$ gages using the [HyRiver](./2022-09-17
 If you would like to learn more about hydro-environmental data acquisition in Python, check out my old post on [*Efficient hydroclimatic data accessing with HyRiver for Python*](https://waterprogramming.wordpress.com/2022/09/20/efficient-hydroclimatic-data-accessing-with-hyriver-for-python/).
 
 The script used to retrieve the data is available [here](https://github.com/TrevorJA/QPPQ_Streamflow_Prediction_Tutorial/blob/main/generate_streamflow_data.py). If you would like to experiment with this method in other regions, you can change the `region` variable on line 21, which specifies the corners of a bounding-box within which gage data will be retrieved:
+
 ```python
 # Specify time-range and region of interest
 dates = ("2000-01-01", "2010-12-31")
 region = (-108.0, 38.0, -105.0, 40.0)
 ```
+
 Above, I specify a region West of the Rocky Mountains in Colorado. Running the `generate_streamflow_data.py`, I found 73 USGS gage locations (blue circles). 
 
-<img src="/images/QPPQ_demo_sites.png" width = 400 class="center">
+<div style="text-align: center;">
+    <img src="./images/QPPQ_demo_sites.png" width = 500>
+</div>
+
 
 #### QPPQ Model
 
@@ -212,11 +229,14 @@ observed_flows = np.loadtxt('./data/observed_streamflow.csv', delimiter = ',')
 ```
 
 The FDCs at each site are estimated at 200 discrete quantiles:
+
 ```python
 fdc_quantiles = np.linspace(0,1,200)
 observed_fdc = np.quantile(observed_flows, fdc_quantiles, axis =1).T
 ```
+
 A random test site is selected, and removed from the observation data:
+
 ```python
 # Select a test site and remove it from observations
 test_site = np.random.randint(0, gage_locations.shape[0])
@@ -257,13 +277,16 @@ prediction_args = {'prediction_location': test_location,
 predicted_flow = QPPQ_model.predict_streamflow(prediction_args)
 ```
 I made a function, `plot_predicted_and_observed`, which allows for a quick visual check of the predicted timeseries compared to the observed timeseries:
+
 ```python
 from plot_functions import plot_predicted_and_observed
 plot_predicted_and_observed(predicted_flow, test_flow)
 ```
 Which shows some very-nice quality predictions!
 
-<img src="/images/QPPQ_demo_1.png" width = 400 class="center">
+<div style="text-align: center;">
+    <img src="./images/QPPQ_demo_1.png">
+</div>
 
 One benefit of working with the `StreamflowGenerator` as a Python `class` object is that we can retrieve the internal variables for further inspection.  
 
@@ -276,9 +299,6 @@ It is worth highlighting one major caveat to this example, which is that the FDC
 There are numerous methods for estimating FDCs at the ungauged site, including the [Generalized Pareto distribution approximation proposed by Fennessey (1994)](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=efFhgZ8AAAAJ&citation_for_view=efFhgZ8AAAAJ:zYLM7Y9cAGgC) or, more recently, through the use of Neural Networks, as highlighted in [Worland,  et al. (2019)](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2018WR024463).
 
 Hopefully this tutorial helped to get you familiar with a foundational streamflow prediction method.  
-
-$\hat{FDC}_{pred} : \mathbf{p_{pred}} \to \mathbf{q_{pred}}, \, \mathbf{P} = \set{\mathbf{p}_1, …, \mathbf{p}_k}$
-
 
 ## References
 
