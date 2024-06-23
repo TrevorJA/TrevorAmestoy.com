@@ -11,10 +11,10 @@ tags:
 ---
 
 
-## Motivation
 Fans of this blog will know that uncertainty is often a focus for our group. When approaching uncertainty, Bayesian methods might be of interest since they explicitly provide uncertainty estimates during the modeling process.  
 
 [PyMC](https://www.pymc.io/welcome.html) is the best tool I have come across for Bayesian modeling in Python; this post gives a super brief introduction to this toolkit.
+
 ## Introduction to PyMC
 
 PyMC, described in their own words:
@@ -60,6 +60,7 @@ camels_basins = camels_basins[(camels_basins['mean_lat'] > 35) & (camels_basins[
 ```
 
 I also convert the mean flow data (`q_mean`) units from mm/day to cubic meters per day:
+
 ```python
 # convert q_mean from mm/day to m3/s
 camels_basins['q_mean_cms'] = camels_basins['q_mean'] * (1e-3) *(camels_basins['area_gages2']*1000**2) * (1/(60*60*24)) 
@@ -67,17 +68,23 @@ camels_basins['q_mean_cms'] = camels_basins['q_mean'] * (1e-3) *(camels_basins['
 ```
 
 And this is all the data we need for this crude model!
+
 ### Bayesian linear model
 
 The simple linear regression model (hello my old friend):
+
 $$y = \alpha + \beta X + \epsilon$$
+
 Normally you might assume that there is a single, best value corresponding to each of the model parameters (alpha and beta). This is considered a [Frequentist](https://en.wikipedia.org/wiki/Frequentist_probability) perspective and is a common approach.  In these cases, the best parameters can be estimated by minimizing the errors corresponding to a particular set of parameters ([see least squares, for example](https://en.wikipedia.org/wiki/Least_squares).
 
 However, we could take a different approach and **assume that the parameters (intercept and slope) are random variables themselves, and have some corresponding distribution.**  This would constitute a Bayesian perspective.  
 
 Keeping with simplicity in this example, I will assume that the intercept and slope each come from a normal distribution with a mean and variance such that:
+
 $$\alpha \sim \mathcal{N}(\mu_{\alpha}, \sigma_{\alpha}^2)$$
+
 $$\beta \sim \mathcal{N}(\mu_{\beta}, \sigma_{\beta}^2)$$
+
 When it comes time to make inferences or predictions using our model, we can create a large number of predictions by sampling different parameter values from these distributions.  Consequently, we will end up with a distribution of uncertain predictions. 
 
 ### PyMC implementation
@@ -98,6 +105,7 @@ You will get a warning if you don't have this properly set up.
 Now, onto the demo!
 
 I start by retrieving our X and Y data from the CAMELS dataset we created above:
+
 ```python
 # Pull out X and Y of interest
 x_ftr= 'area_gages2'
@@ -112,7 +120,7 @@ ys = np.log(ys)
 
 At a glance, we see there is a reasonable linear relationship when working in the log space:
 
-<img src="./images/PyMC-prior.png" width=50% class="center">
+![Prior model assumption](./images/PyMC-prior.png)
 
 
 Two of the key features when building a model are:
@@ -192,8 +200,7 @@ plt.suptitle('90% Posterior Prediction Interval', fontsize=14)
 plt.show()
 ```
 
-<img src="./images/PyMC-posterior_predictions.png" width=75% class="center">
-
+![Posterior range of linear regression](./images/PyMC-posterior_predictions.png)
 
 
 And there we have it!   The figure on the left shows the data and posterior prediction range in log-space, while the figure on the right is in non-log space.  
@@ -205,6 +212,7 @@ That's all for now; this post was really meant to bring PyMC to your attention. 
 If you have other Bayesian/probabilistic programming tools that you like, please do comment below.  PyMC is one (good) option, but I'm sure other people have their own favorites for different reasons. 
 
 *** 
+
 ### PyMC resources:
 - The [PyMC example gallery](https://www.pymc.io/projects/examples/en/latest/gallery.html)
 - I've found Thomas Wiecki's site, [twiecki.io](https://twiecki.io/), to have some great blog posts to help get started with PyMC:

@@ -91,18 +91,13 @@ The [plotting functions](https://github.com/TrevorJA/ThomasFieringModelDemo/blob
 
 First we consider the range of historic and synthetic streamflow timeseries:
 
-<div style="text-align: center;">
-    <img src="./images/ThomasFiering_results_monthly_range.png" width="400">
-</div>
-
+![Monthly synthetic flow range](./images/ThomasFiering_results_monthly_range.png)
 
 Generally when working with synthetic ensembles it is good for the distribution of synthetic ensembles "envelope" the historic range while maintaining a similar median. The Thomas Fiering model does a good job at this!
 
 The next figure shows the range of flow-quantile values for both historic and synthetic flows. Again, we see a nice overlapping of the synthetic ensemble:
 
-<div style="text-align: center;">
-    <img src="./images/ThomasFiering_FDC_comparison.png" width = 400 class="center">
-</div>
+![Synthetic FDC ranges](./images/ThomasFiering_FDC_comparison.png)
 
 
 ## Conclusions

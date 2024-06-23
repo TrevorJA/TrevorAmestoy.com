@@ -52,6 +52,7 @@ The purpose of this post is to focus on the generation of _harvesting policies_ 
 ## Harvesting policy
 
 Rather than assigning a deterministic, or specific harvest effort level for every time period, we can design an _adaptive_ policy which is a function of the current state of the system:
+
 $$\tag{2.0} z_t = f(\cdot) $$
 
 The problem then becomes the optimization of the control rule, $f(\cdot)$, rather than the specific values, $z = (z_0, z_1,..., z_T)$. This process of optimizing the parameters of a state-aware control rule is referred to as _direct policy search_.
@@ -131,7 +132,55 @@ $$[c_1, b_1, w_1, c_2, b_2, w_2] = [0.2, 1.1, 0.41, 0.34,0.7, 0.59] $$
 
 The following function will plot the harvesting strategy:
 
-![[rbf policy plot#Generic RBF plot function]]
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def plot_RBF_policy(x_range, x_label, y_range, y_label, RBF_params, nRBFs):
+	"""
+	Parameters:
+	-----------
+	RBF_params : list [3xnRBFs]
+		The RBF parameters in the order of [c, r, w,...,c, r, w].
+	nRBFs : int
+		The number of RBFs used in the mapping function.
+
+	Returns:
+	--------
+	None.
+	"""
+
+	# Step size
+	n = 100
+	x_min = x_range[0]
+	x_max = x_range[1]
+	y_min = y_range[0]
+	y_max = y_range[1]
+
+	# Generate data
+	x_vals = np.linspace(x_min, x_max, n)
+	y_vals = np.zeros(n)
+
+	for i in range(n):
+		y = evaluate_RBF(x_vals[i], RBF_params, nRBFs)
+
+		# Check that assigned actions are within range
+		if y < y_min:
+			y = y_min
+		elif y > y_max:
+			y = y_max
+
+		y_vals[i] = y
+	
+	# Plot
+	fig, ax = plt.subplots(figsize = (5,5), dpi = 200)
+	ax.plot(x_vals, y_vals, label = 'Policy', color = 'green')
+	ax.set_xlabel(x_label)
+	ax.set_ylabel(y_label)
+	ax.set_title('RBF Policy')	
+	plt.show()
+	return
+```
 
 Setting my problem-specific inputs, and running the function:
 
@@ -150,36 +199,37 @@ y_label = 'Harvest Effort ($z$)'
 plot_RBF_policy(x_range, x_label, y_range, y_label, RBF_params, nRBFs)
 ```
 
-![[Pasted image 20220805135741.png]]
+![Exammple RBF policy curve](./images/rbf_example.png)
 
 This policy does not make much intuitive sense... why should harvesting efforts be _decreased_ when the fish population is _large_? Well, that's because I chose these RBF parameter values randomly.  
 
 To demonstrate the flexibility of the RBF functions, and the variety of policy functions that can result from them, I generated a few (_n = 7_) policies using a random sample of parameter values. The parameter values were sampled from a uniform distribution over each parameters range: $c_i, b_i, w_i \in [0,1]$. Below is a plot of the resulting random policy functions:
 
-![[Pasted image 20220808101343.png]]
+![Random RBF policy curves](./images/rbf_random_policies.png)
 
 Finding the sets of RBF parameter values that result in Pareto-optimal harvesting policies is the next step in this process!
 
-## Harvest strategy objectives (Trevor)
+## Harvest strategy objectives
 
 We take a multi-objective approach to the generation of a harvesting strategy. Given that the populations are vulnerable to collapse, it is important to consider ecological objectives in the problem formulation.
 
 Here, we consider five objectives, described below.
 
-#### Objective #1: Maximize net present value
+### Objective #1: Maximize net present value
 
 The net present value is an economic objective corresponding to the amount of fish harvested.  
 
 During the simulation-optimization process (later in this post), we simulate a single policy $N$ times, and take the _average_ objective score over the range of simulations. This method helps to account for variability in expected outcomes due to natural stochasticity. Here, we use $N = 100$ realizations of stochasticity.
 
 With that in mind, the NPV ($O_1$) is calculated as:
+
 $$O_1 = \frac{1}{N} \sum_{i=1}^N\Big( \sum_{t=0}^T \frac{z_{t+1,i}x_{t,i}}{(1+\delta)^t}\Big)$$
 
 where $\delta$ is the discount rate which converts future benefits to present economic value, here $\delta = 0.05$.
 
 <br />
 
-#### Objective #2: Minimize prey population deficit
+### Objective #2: Minimize prey population deficit
 
 The second objective aims to minimize the average prey population deficit, relative to the prey population carrying capacity, $K$:
 
@@ -187,7 +237,7 @@ $$O_2 = \frac{1}{N} \sum_{i=1}^N\Big( \frac{1}{T} \sum_{t=1}^T \frac{K - x_{t,i}
 
 <br />
 
-#### Objective #3: Minimize longest duration of consecutive low harvest
+### Objective #3: Minimize longest duration of consecutive low harvest
 
 In order to maintain steady harvesting levels, we minimize the longest duration of consecutive low harvest. Here, a subjective definition of _low harvest_ is imposed. In a practical decision making process, this threshold may be solicited from the relevant stakeholders.
 
@@ -210,7 +260,7 @@ And the _low harvest limit_ is: $limit = 5\%$.
 
 <br />
 
-#### Objective #4: Minimize worst harvest instance
+### Objective #4: Minimize worst harvest instance
 
 In addition to avoiding long periods of continuously low harvest, the stakeholders have a desire to limit financial risks associated with very low harvests. Here, we minimize the _worst 1%_ of harvest.
 
@@ -220,7 +270,7 @@ $$O_4 = \frac{1}{N} \sum_{i=1}^N(percentile_T(z_{t+1,i}x_{t,i}, 1))$$
 
 <br />
 
-#### Objective #5: Minimize harvest variance
+### Objective #5: Minimize harvest variance
 
 Lastly, policies which result in low harvest variance are more easily implemented, and can limit corresponding variance in fish populations.
 
@@ -230,7 +280,7 @@ $$O_5 = \frac{1}{N} \sum_{i=1}^N(Var_T(z_{t+1,i}x_{t,i}))$$
 
 <br />
 
-#### Constraint: avoid collapse of predator population
+### Constraint: avoid collapse of predator population
 
 During the optimization process, we are able to include _constraints_ on the harvesting policies.
 
@@ -253,7 +303,7 @@ $$
 
 <br />
 
-#### Problem formulation
+### Problem formulation
 
 Given the objectives described above, the optimization problem is:
 
@@ -623,7 +673,7 @@ plt.xlabel('Number of Function Evaluations')
 plt.ylabel('Hypervolume')
 plt.show()
 ```
-![[Pasted image 20220808131828.png]]
+
 
 #### Perform random seed analysis
 Next, we perform random seed analysis (RSA).<br>
@@ -656,7 +706,8 @@ plt.legend()
 plt.show()
 ```
 
-![[Pasted image 20220808131855.png]]
+![Results of random seed analysis showing convergence](./images/pyborg_random_seeds.png)
+
 
 ## Conclusion
 

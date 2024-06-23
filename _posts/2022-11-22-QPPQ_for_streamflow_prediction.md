@@ -53,9 +53,7 @@ Looking at this formulation, and the sequence of transformations that take place
 This method is summarized well by the taken from the [USGS Report on the topic](https://pubs.usgs.gov/sir/2015/5157/sir20155157.pdf):
 
 
-<div style="text-align: center;">
-    <img src="./images/QPPQ_Method_Graphic.png" width = 400>
-</div>
+![Visual illustration of QPPQ transformations](./images/QPPQ_Method_Graphic.png)
 
 
 In the following section, I step through an implementation of this method in Python.
@@ -74,13 +72,15 @@ geopy
 geopandas
 pygeohydro   # Only if generating your own data
 ```
+
 Running `pip install -r requirements.txt` from the command line, while inside a local copy of the directory will install all of these packages.
 
-#### Data retrieval
+### Data retrieval
 
 I collected USGS streamflow data from $N$ gages using the [HyRiver](./2022-09-17-HyRiver_tutorial.md) suite for Python. 
 
 If you would like to learn more about hydro-environmental data acquisition in Python, check out my old post on [*Efficient hydroclimatic data accessing with HyRiver for Python*](https://waterprogramming.wordpress.com/2022/09/20/efficient-hydroclimatic-data-accessing-with-hyriver-for-python/).
+
 
 The script used to retrieve the data is available [here](https://github.com/TrevorJA/QPPQ_Streamflow_Prediction_Tutorial/blob/main/generate_streamflow_data.py). If you would like to experiment with this method in other regions, you can change the `region` variable on line 21, which specifies the corners of a bounding-box within which gage data will be retrieved:
 
@@ -92,12 +92,10 @@ region = (-108.0, 38.0, -105.0, 40.0)
 
 Above, I specify a region West of the Rocky Mountains in Colorado. Running the `generate_streamflow_data.py`, I found 73 USGS gage locations (blue circles). 
 
-<div style="text-align: center;">
-    <img src="./images/QPPQ_demo_sites.png" width = 500>
-</div>
+![Map of gage locations used](./images/QPPQ_demo_sites.png)
 
 
-#### QPPQ Model
+### QPPQ Model
 
 The file `QPPQ.py` contains the method outlined above, defined as the `StreamflowGenerator` class object. 
 
@@ -284,9 +282,9 @@ plot_predicted_and_observed(predicted_flow, test_flow)
 ```
 Which shows some very-nice quality predictions!
 
-<div style="text-align: center;">
-    <img src="./images/QPPQ_demo_1.png">
-</div>
+
+![Results of QPPQ](./images/QPPQ_demo_1.png)
+
 
 One benefit of working with the `StreamflowGenerator` as a Python `class` object is that we can retrieve the internal variables for further inspection.  
 

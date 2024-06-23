@@ -85,10 +85,7 @@ The project is a silly riddle program with no real usefulness other than forming
 
 Below is a visual representation of how the different functions are interacting. The green-box functions are contained within the main `sample_package`, while the blue-box function is stored in the `subpackage`.  
 
-<div style="text-align: center;">
-  <img src="./images/python_demo_flow.png" width =75%>
-</div>
-
+![Function diagram](./images/python_demo_flow.png)
 
 The program can then be executed from a command line using the [`main.py`](https://github.com/TrevorJA/example_python_project/blob/main/main.py) executable:
 
